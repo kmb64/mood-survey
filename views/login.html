@@ -1,2 +1,4 @@
-<button ng-hide="authorised" ng-click="login()">Login with Google</button>
-<button ng-show="authorised" ng-click="logout()">Logout</button>
+<div class="inner">
+  <img class="sign-in" ng-hide="authorised" ng-click="login()" src="images/google-sign-in.png"/>
+  <button ng-show="authorised" ng-click="logout()">Logout</button>
+</div>

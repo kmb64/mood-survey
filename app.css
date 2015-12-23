@@ -1,0 +1,35 @@
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+.mood {
+    display : inline-block;
+    font-size : 100px;
+    float : left;
+    cursor : pointer;
+    padding-right: 50px;
+}
+
+.mood:last-child {
+    padding-right: 0;
+}
+
+.sign-in {
+    cursor : pointer;
+    width : 191px;
+    height : 46px;
+}

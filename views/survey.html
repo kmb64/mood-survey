@@ -1,9 +1,13 @@
-<span class="animated emoji">😠</span>
+<div class="inner" ng-show="show">
 
-<span class="animated emoji">😞</span>
+  <span class="mood" ng-click="addMood('veryBad');" ng-class="{'animated wobble' : animate.veryBad}">😡</span>
 
-<span class="animated emoji">😒</span>
+  <span class="mood" ng-click="addMood('bad');" ng-class="{'animated bounce' : animate.bad}">😞</span>
 
-<span class="animated emoji">😊</span>
+  <span class="mood" ng-click="addMood('fine');" ng-class="{'animated jello' : animate.fine}">😌</span>
 
-<span class="animated emoji">😄</span>
+  <span class="mood" ng-click="addMood('good');" ng-class="{'animated swing' : animate.good}">😊</span>
+
+  <span class="mood" ng-click="addMood('veryGood');" ng-class="{'animated shake' : animate.veryGood}">😍 </span>
+
+</div>

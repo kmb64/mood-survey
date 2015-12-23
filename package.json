@@ -1,0 +1,21 @@
+{
+  "name": "mood-survey",
+  "version": "1.0.0",
+  "description": "Tool to assess the average mood of the team.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmb64/mood-survey.git"
+  },
+  "author": "kmb64",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmb64/mood-survey/issues"
+  },
+  "homepage": "https://github.com/kmb64/mood-survey#readme",
+  "dependencies": {
+  }
+}

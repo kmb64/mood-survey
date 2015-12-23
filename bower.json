@@ -1,0 +1,23 @@
+{
+  "name": "mood-survey",
+  "version": "1.0.0",
+  "homepage": "https://github.com/kmb64/mood-survey",
+  "authors": [
+    "kmb64"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.5.0",
+    "angular": "~1.4.8",
+    "angularfire": "~1.1.3",
+    "firebase": "~2.3.2",
+    "angular-route": "~1.4.8"
+  }
+}

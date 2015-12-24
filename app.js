@@ -18,14 +18,6 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
     var ref = new Firebase('https://amber-heat-8057.firebaseio.com/surveys/' + s);
     var survey= $firebaseObject(ref);
 
-    $scope.moods = [
-      {val : 'veryBad', emoji : '?'},
-      {val : 'bad', emoji : '?'},
-      {val : 'fine', emoji : '?'},
-      {val : 'happy', emoji : '?'},
-      {val : 'veryHappy', emoji : '?'}
-    ];
-
     survey.$loaded(function(response) {
       $scope.show = true;
       survey.$bindTo($scope, 'survey');
@@ -48,11 +40,10 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
       }
     };
 
-  }).controller('LoginController', function ($scope, $firebaseAuth) {
+  }).controller('LoginController', function ($scope, $firebaseAuth, $firebaseArray) {
 
-    var ref = new Firebase('https://amber-heat-8057.firebaseio.com');
-    // create an instance of the authentication service
-    var auth = $firebaseAuth(ref);
+    var auth = $firebaseAuth(new Firebase('https://amber-heat-8057.firebaseio.com'));
+    var array = $firebaseArray(new Firebase('https://amber-heat-8057.firebaseio.com/surveys'));
 
     auth.$onAuth(function (authData) {
       $scope.authorised = authData;
@@ -65,6 +56,25 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
       }).catch(function (error) {
         console.log('Authentication failed:', error);
       });
+    };
+
+    $scope.createSurvey = function() {
+
+      var date = new Date();
+
+      array.$add(
+        {
+          date : date.toJSON(),
+          veryBad : 0,
+          bad : 0,
+          fine : 0,
+          good : 0,
+          veryGood : 0
+        }
+      ).then(function(response){
+          $scope.newUrl = '#/survey?s=' + response.key();
+        });
+
     };
 
     $scope.logout = function () {

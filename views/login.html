@@ -1,4 +1,8 @@
 <div class="inner">
   <img class="sign-in" ng-hide="authorised" ng-click="login()" src="images/google-sign-in.png"/>
   <button ng-show="authorised" ng-click="logout()">Logout</button>
+  <button ng-show="authorised" ng-click="createSurvey()">New survey</button>
+
+  <h1>My Surveys</h1>
+  <a ng-show="newUrl" href="{{newUrl}}">New survey here</a>
 </div>

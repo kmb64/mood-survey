@@ -2,14 +2,6 @@
 
   <style>
 
-    td {
-      vertical-align: bottom;
-    }
-
-    td span {
-      vertical-align: bottom;
-    }
-
     .result.very-bad {
     border-top : {{survey.veryBad / survey.totalHits * 100 + 'px'}} solid #101010;
     }
@@ -27,6 +19,10 @@
     }
 
   </style>
+
+  <div>
+    <button class="btn btn-primary" ng-click="showResults = true">Show results</button>
+  </div>
 
   <div class="mood-container">
 

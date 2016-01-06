@@ -10,15 +10,17 @@ body {
 }
 
 .mood {
-    display : inline-block;
     font-size : 80px;
-    float : left;
     cursor : pointer;
-    margin-right: 40px;
+    text-align : center;
 }
 
-.mood:last-child {
-    margin-right: 0;
+.mood-container td {
+    text-align : center;
+}
+
+.mood-container span {
+    display : inline-block;
 }
 
 .survey-list {

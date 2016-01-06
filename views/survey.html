@@ -2,42 +2,54 @@
 
   <div>
     <button class="btn btn-primary" ng-click="showResults()">Show results</button>
-
   </div>
 
-  <style>
+  <style ng-show="showResults">
 
-    .mood.very-bad {
-      border-bottom : {{survey.veryBad / survey.totalHits * 100 + 'px'}} solid #101010;
+    td {
+      vertical-align: bottom;
     }
-    .mood.bad {
-      border-bottom : {{survey.bad / survey.totalHits * 100 + 'px'}} solid #101010;
+
+    td span {
+      vertical-align: bottom;
     }
-    .mood.fine {
-      border-bottom : {{survey.fine / survey.totalHits * 100 + 'px'}} solid #101010;
+
+    .result.very-bad {
+    border-top : {{survey.veryBad / survey.totalHits * 100 + 'px'}} solid #101010;
     }
-    .mood.good {
-      border-bottom : {{survey.good / survey.totalHits * 100 + 'px'}} solid #101010;
+    .result.bad {
+    border-top : {{survey.bad / survey.totalHits * 100 + 'px'}} solid #101010;
     }
-    .mood.very-good {
-      border-bottom : {{survey.veryGood / survey.totalHits * 100 + 'px'}} solid #101010;
+    .result.fine {
+    border-top : {{survey.fine / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
+    .result.good {
+    border-top : {{survey.good / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
+    .result.very-good {
+    border-top : {{survey.veryGood / survey.totalHits * 100 + 'px'}} solid #101010;
     }
 
   </style>
 
-
-
   <div class="mood-container">
 
-    <span class="mood very-bad" ng-click="addMood('veryBad');" ng-class="{'animated wobble' : animate.veryBad}">😡</span>
-
-    <span class="mood bad" ng-click="addMood('bad');" ng-class="{'animated bounce' : animate.bad}">😞</span>
-
-    <span class="mood fine" ng-click="addMood('fine');" ng-class="{'animated jello' : animate.fine}">😌</span>
-
-    <span class="mood good" ng-click="addMood('good');" ng-class="{'animated swing' : animate.good}">😊</span>
-
-    <span class="mood very-good" ng-click="addMood('veryGood');" ng-class="{'animated shake' : animate.veryGood}">😍 </span>
+    <table class="table table-striped">
+      <tr>
+        <td><span class="result very-bad">{{survey.veryBad / survey.totalHits | percentage:2}}</span></td>
+        <td><span  class="result bad">{{survey.bad / survey.totalHits | percentage:2}}</span></td>
+        <td><span  class="result fine">{{survey.fine / survey.totalHits | percentage:2}}</span></td>
+        <td><span  class="result good">{{survey.good / survey.totalHits | percentage:2}}</span></td>
+        <td><span  class="result very-good">{{survey.veryGood / survey.totalHits | percentage:2}}</span></td>
+      </tr>
+      <tr>
+        <td><span class="mood very-bad" ng-click="addMood('veryBad');" ng-class="{'animated wobble' : animate.veryBad}">😡</span></td>
+        <td><span class="mood bad" ng-click="addMood('bad');" ng-class="{'animated bounce' : animate.bad}">😞</span></td>
+        <td><span class="mood fine" ng-click="addMood('fine');" ng-class="{'animated jello' : animate.fine}">😌</span></td>
+        <td><span class="mood good" ng-click="addMood('good');" ng-class="{'animated swing' : animate.good}">😊</span></td>
+        <td><span class="mood very-good" ng-click="addMood('veryGood');" ng-class="{'animated shake' : animate.veryGood}">😍 </span></td>
+      </tr>
+    </table>
 
   </div>
 

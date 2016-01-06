@@ -1,0 +1,14 @@
+{
+  "firebase": "amber-heat-8057",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**",
+    ".gitignore",
+    "package.json",
+    "README.md",
+    "test-survey.json",
+    "bower.json"
+  ]
+}

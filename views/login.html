@@ -21,8 +21,38 @@
   </div>
 
 
-  <button class="btn btn-default" ng-show="authorised" ng-click="logout()">Logout</button>
-  <button class="btn btn-primary" ng-show="authorised" ng-click="createSurvey()">New survey</button>
+<div ng-show="authorised">
 
-  <!--<h1>My Surveys</h1>-->
-  <a ng-show="newUrl" href="{{newUrl}}">New survey here</a>
+  <button class="btn btn-default" ng-click="logout()">Logout</button>
+  <button class="btn btn-primary" ng-click="createSurvey()" data-toggle="modal" data-target="#myModal">New survey
+  </button>
+
+  <h2>Previous surveys:</h2>
+
+  <ul class="survey-list">
+    <li ng-repeat="s in surveys | orderBy:'-date'" ng-if="owned(s)">
+      <a ng-href="{{s.link}}">{{s.date | date : 'dd/MM/yyyy'}}</a>
+    </li>
+  </ul>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New survey created</h4>
+        </div>
+        <div class="modal-body">
+          <a ng-show="newUrl" target="_blank" href="{{newUrl}}">Click here or send this link to your team</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

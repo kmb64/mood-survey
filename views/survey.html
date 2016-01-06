@@ -1,13 +1,44 @@
-<div class="inner" ng-show="show">
+<div ng-show="show">
 
-  <span class="mood" ng-click="addMood('veryBad');" ng-class="{'animated wobble' : animate.veryBad}">😡</span>
+  <div>
+    <button class="btn btn-primary" ng-click="showResults()">Show results</button>
 
-  <span class="mood" ng-click="addMood('bad');" ng-class="{'animated bounce' : animate.bad}">😞</span>
+  </div>
 
-  <span class="mood" ng-click="addMood('fine');" ng-class="{'animated jello' : animate.fine}">😌</span>
+  <style>
 
-  <span class="mood" ng-click="addMood('good');" ng-class="{'animated swing' : animate.good}">😊</span>
+    .mood.very-bad {
+      border-bottom : {{survey.veryBad / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
+    .mood.bad {
+      border-bottom : {{survey.bad / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
+    .mood.fine {
+      border-bottom : {{survey.fine / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
+    .mood.good {
+      border-bottom : {{survey.good / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
+    .mood.very-good {
+      border-bottom : {{survey.veryGood / survey.totalHits * 100 + 'px'}} solid #101010;
+    }
 
-  <span class="mood" ng-click="addMood('veryGood');" ng-class="{'animated shake' : animate.veryGood}">😍 </span>
+  </style>
+
+
+
+  <div class="mood-container">
+
+    <span class="mood very-bad" ng-click="addMood('veryBad');" ng-class="{'animated wobble' : animate.veryBad}">😡</span>
+
+    <span class="mood bad" ng-click="addMood('bad');" ng-class="{'animated bounce' : animate.bad}">😞</span>
+
+    <span class="mood fine" ng-click="addMood('fine');" ng-class="{'animated jello' : animate.fine}">😌</span>
+
+    <span class="mood good" ng-click="addMood('good');" ng-class="{'animated swing' : animate.good}">😊</span>
+
+    <span class="mood very-good" ng-click="addMood('veryGood');" ng-class="{'animated shake' : animate.veryGood}">😍 </span>
+
+  </div>
 
 </div>

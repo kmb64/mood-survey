@@ -1,3 +1,5 @@
+var MOODS = ['veryBad', 'bad', 'fine', 'good', 'veryGood'];
+
 angular.module('mood-survey', ['ngRoute', 'firebase']
 ).config(function ($routeProvider) {
     $routeProvider
@@ -32,6 +34,7 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
     $scope.addMood = function(mood) {
       if(!$scope.animate[mood]) {
 
+        $scope.survey.totalHits += 1;
         $scope.survey[mood] += 1;
         $scope.animate[mood] = true;
         $timeout(function(){
@@ -43,7 +46,9 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
   }).controller('LoginController', function ($scope, $firebaseAuth, $firebaseArray) {
 
     var auth = $firebaseAuth(new Firebase('https://amber-heat-8057.firebaseio.com'));
-    var array = $firebaseArray(new Firebase('https://amber-heat-8057.firebaseio.com/surveys'));
+    var array = $firebaseArray(new Firebase('https://amber-heat-8057.firebaseio.com/surveys/'));
+
+    $scope.surveys = [];
 
     auth.$onAuth(function (authData) {
       $scope.authorised = authData;
@@ -58,24 +63,40 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
       });
     };
 
+    $scope.owned = function(s) {
+      s.link = '#/survey?s=' + s.$id;
+      return s.owner === $scope.authorised.uid;
+    };
+
+    array.$loaded().then(function(surveys) {
+
+      $scope.surveys = surveys;
+      console.log(surveys);
+
+    });
+
     $scope.createSurvey = function() {
 
       var date = new Date();
 
       array.$add(
         {
+          owner : $scope.authorised.uid,
           date : date.toJSON(),
           veryBad : 0,
           bad : 0,
           fine : 0,
           good : 0,
-          veryGood : 0
+          veryGood : 0,
+          totalHits : 0
         }
       ).then(function(response){
           $scope.newUrl = '#/survey?s=' + response.key();
         });
 
     };
+
+    $scope.surveys = array;
 
     $scope.logout = function () {
       auth.$unauth();

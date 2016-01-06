@@ -62,7 +62,7 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
     });
 
     $scope.login = function () {
-      auth.$authWithOAuthPopup('google').then(function (authData) {
+      auth.$authWithOAuthRedirect('google').then(function (authData) {
         console.log('Logged in as:', authData.uid);
       }).catch(function (error) {
         console.log('Authentication failed:', error);

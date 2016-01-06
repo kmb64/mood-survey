@@ -9,9 +9,13 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginController'
-      }).when('/survey', {
+      })
+      .when('/survey', {
         templateUrl: 'views/survey.html',
         controller: 'SurveyController'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html'
       });
 
   }).controller('SurveyController', function($scope, $routeParams, $firebaseObject, $timeout) {

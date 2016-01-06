@@ -37,9 +37,11 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
         $scope.survey.totalHits += 1;
         $scope.survey[mood] += 1;
         $scope.animate[mood] = true;
+        $scope.showResults = true;
         $timeout(function(){
           $scope.animate[mood] = false;
-        },1000);
+          $scope.showResults = false;
+        },2000);
       }
     };
 

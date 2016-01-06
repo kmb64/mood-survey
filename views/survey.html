@@ -1,10 +1,6 @@
 <div ng-show="show">
 
-  <div>
-    <button class="btn btn-primary" ng-click="showResults()">Show results</button>
-  </div>
-
-  <style ng-show="showResults">
+  <style>
 
     td {
       vertical-align: bottom;
@@ -35,7 +31,7 @@
   <div class="mood-container">
 
     <table class="table table-striped">
-      <tr>
+      <tr ng-if="showResults">
         <td><span class="result very-bad">{{survey.veryBad / survey.totalHits | percentage:2}}</span></td>
         <td><span  class="result bad">{{survey.bad / survey.totalHits | percentage:2}}</span></td>
         <td><span  class="result fine">{{survey.fine / survey.totalHits | percentage:2}}</span></td>

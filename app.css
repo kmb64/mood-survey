@@ -15,8 +15,9 @@ body {
     text-align : center;
 }
 
-.mood-container td {
+.mood-container table tr td {
     text-align : center;
+    vertical-align: bottom;
 }
 
 .mood-container span {

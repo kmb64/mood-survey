@@ -1,39 +1,8 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size : 20px;
-    color : #252527;
+    padding-top: 50px;
 }
-
-h1,h2,h3,h4,h5,h6 {
-    font-weight : 500;
-}
-
-.button, button {
-    background: #FFF;
-    color : #252527;
-    border: 1px solid #252527;
-    padding : 16px 32px 16px 32px;
-    cursor : pointer;
-    font-size : 16px;
-    margin-right : 20px;
-}
-
-.outer {
-    display: table;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.middle {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.inner {
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
+.starter-template {
+    padding: 40px 15px;
 }
 
 .mood {
@@ -48,8 +17,56 @@ h1,h2,h3,h4,h5,h6 {
     padding-right: 0;
 }
 
-.sign-in {
-    cursor : pointer;
-    width : 191px;
-    height : 46px;
+.abcRioButtonWhite {
+    background-color: #fff;
+    color: #dc4e41;
+}
+
+.abcRioButton:hover {
+    -webkit-box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+    box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+}
+
+.abcRioButton {
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+    -webkit-user-select: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+}
+
+.abcRioButtonIcon {
+    float: left;
+}
+
+.abcRioButtonSvg {
+    display: block;
+}
+
+.abcRioButtonWhite path {
+    fill: #dc4e41;
+}
+
+.abcRioButtonContents {
+    font-family: Roboto,arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .21px;
+    margin-left: 6px;
+    margin-right: 6px;
+    vertical-align: top;
 }

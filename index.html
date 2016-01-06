@@ -2,19 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Team Mood Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Survey</title>
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
   <link rel="stylesheet" href="app.css"/>
+
+  <style>
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+  </style>
 
 </head>
 <body ng-app="mood-survey">
 
-  <div class="outer">
-    <div class="middle" ng-view></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Mood Survey app</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="starter-template">
+
+    <div ng-view></div>
+
   </div>
 
+</div>
+<!-- /.container -->
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>

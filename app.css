@@ -24,6 +24,11 @@ body {
     display : inline-block;
 }
 
+.mood > img {
+    width : 70%;
+    height : 70%;
+}
+
 .survey-list {
     margin : 20px 0;
 }

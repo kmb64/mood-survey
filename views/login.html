@@ -21,7 +21,7 @@
   </div>
 
 
-<div ng-show="authorised">
+<div ng-if="authorised">
 
   <button class="btn btn-default" ng-click="logout()">Logout</button>
   <button class="btn btn-primary" ng-click="createSurvey()" data-toggle="modal" data-target="#myModal">New survey

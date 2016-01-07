@@ -4,7 +4,10 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
 ).config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/login'
+        redirectTo: '/login',
+        resolve: {
+          currentUser: function (auth) { return auth.$waitForAuth(); }
+        }
       })
       .when('/login', {
         templateUrl: 'views/login.html',

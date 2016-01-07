@@ -59,13 +59,17 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
     auth.$onAuth(function (authData) {
       $scope.authorised = authData;
       console.log(authData);
+      if(authData) {
+        console.log(authData);
+        array.$loaded().then(function(surveys) {
+          $scope.surveys = surveys;
+        });
+      }
     });
 
     $scope.login = function () {
-      auth.$authWithOAuthRedirect('google').then(function (authData) {
-        console.log('Logged in as:', authData.uid);
-      }).catch(function (error) {
-        console.log('Authentication failed:', error);
+      auth.$authWithOAuthRedirect('google', function (error) {
+        console.log('fail redirect' + error);
       });
     };
 
@@ -73,13 +77,6 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
       s.link = '#/survey?s=' + s.$id;
       return s.owner === $scope.authorised.uid;
     };
-
-    array.$loaded().then(function(surveys) {
-
-      $scope.surveys = surveys;
-      console.log(surveys);
-
-    });
 
     $scope.createSurvey = function() {
 
@@ -101,8 +98,6 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
         });
 
     };
-
-    $scope.surveys = array;
 
     $scope.logout = function () {
       auth.$unauth();

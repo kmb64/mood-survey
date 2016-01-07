@@ -4,10 +4,7 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
 ).config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/login',
-        resolve: {
-          currentUser: function (auth) { return auth.$waitForAuth(); }
-        }
+        redirectTo: '/login'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -19,6 +16,8 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
       })
       .when('/about', {
         templateUrl: 'views/about.html'
+      }).otherwise({
+        redirectTo: '/login'
       });
 
   }).controller('SurveyController', function($scope, $routeParams, $firebaseObject, $timeout) {
@@ -44,6 +43,7 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
         $scope.survey.totalHits += 1;
         $scope.survey[mood] += 1;
         $scope.animate[mood] = true;
+
         $timeout(function(){
           $scope.animate[mood] = false;
         },1000);
@@ -59,9 +59,8 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
 
     auth.$onAuth(function (authData) {
       $scope.authorised = authData;
-      console.log(authData);
+      console.log(authData + 'fired');
       if(authData) {
-        console.log(authData);
         array.$loaded().then(function(surveys) {
           $scope.surveys = surveys;
         });
@@ -69,7 +68,7 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
     });
 
     $scope.login = function () {
-      auth.$authWithOAuthPopup('google', function (error) {
+      auth.$authWithOAuthRedirect('google', function (error) {
         console.log('fail redirect' + error);
       });
     };

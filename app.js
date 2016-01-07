@@ -44,11 +44,9 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
         $scope.survey.totalHits += 1;
         $scope.survey[mood] += 1;
         $scope.animate[mood] = true;
-        $scope.showResults = true;
         $timeout(function(){
           $scope.animate[mood] = false;
-          $scope.showResults = false;
-        },2000);
+        },1000);
       }
     };
 
@@ -71,7 +69,7 @@ angular.module('mood-survey', ['ngRoute', 'firebase']
     });
 
     $scope.login = function () {
-      auth.$authWithOAuthRedirect('google', function (error) {
+      auth.$authWithOAuthPopup('google', function (error) {
         console.log('fail redirect' + error);
       });
     };
